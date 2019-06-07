@@ -6,10 +6,28 @@
     <title>BAPP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+ 
 </head>
 <body>
-    
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Your Location</a></li>
+                <li><a href="destination.html">Your Desination</a></li>
+                <li><a href="favorites.html">Your Favorites</a></li>
+            </ul>
+        </div>
+    </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="">Your Location</a></li>
+            <li><a href="">Your Destination</a></li>
+            <li><a href="">Your Favorites</a></li>
+        </ul>
 
 
     <script
@@ -18,5 +36,8 @@
       crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="logic.js"></script>
+
+
 </body>
 </html>
