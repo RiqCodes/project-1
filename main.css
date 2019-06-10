@@ -1,0 +1,12 @@
+.card.large{
+    z-index: -1;
+
+}
+
+.brand-logo{
+    padding-right: 100px;
+}
+
+.card-content {
+    z-index: 2;
+}
