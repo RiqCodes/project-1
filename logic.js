@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $(document).ready(function(){
     $('.sidenav').sidenav();
   
+    // favorite input & save function
     $(".card-action").on("click", function() {
         // $()append("collection-item avatar")
         // get the user input from form

@@ -7,7 +7,7 @@
     <title>BAPP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- icons link -->
@@ -24,7 +24,8 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="yourlocation.html"><i class="large material-icons">location_on</i>Your Location</a></li>
-                <li><a href="destination.html"><i class="large material-icons">directions_bus</i>Your Desination</a></li>
+                <li><a href="destination.html"><i class="large material-icons">directions_bus</i>Your Desination</a>
+                </li>
                 <li><a href="favorites.html"><i class="large material-icons">favorite_border</i>Your Favorites</a></li>
                 <li><a href="index.html"><i class="large material-icons">home</i>Return Home</a></li>
             </ul>
@@ -40,40 +41,41 @@
 
     <!-- destination card -->
     <div class="card large">
-            <div class="row">
-                <div class="col m12 m7">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="thinkingpic.jpg">
-                            <span class="card-title"></span>
-                        </div>
+        <div class="row">
+            <div class="col m12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="thinkingpic.jpg">
+                        <span class="card-title"></span>
                     </div>
-                    <h5>Enter New Route</h5>
-                    <div class="card-content">
-                        <div class="row">
-                            <form class="col s12">
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <i class="material-icons prefix">add_location</i>
-                                        <input id="icon_prefix" type="text" class="validate">
-                                        <label for="icon_prefix">Starting Location</label>
-                                        <button class="btn waves-effect waves-light red lighten-2" type="submit" name="action">Go!
-                                                <i class="material-icons right">send</i>
-                                              </button>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <i class="material-icons prefix">location_searching</i>
-                                        <input id="icon_telephone" type="tel" class="validate">
-                                        <label for="icon_telephone">Ending</label>
-                                    </div>
+                </div>
+                <h5>Enter New Route</h5>
+                <div class="card-content">
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">add_location</i>
+                                    <input id="icon_prefix" type="text" class="validate">
+                                    <label for="icon_prefix">Starting Location</label>
+                                    <button class="btn waves-effect waves-light red lighten-2" type="submit"
+                                        name="action">Go!
+                                        <i class="material-icons right">send</i>
+                                    </button>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
+                                <div class="input-field col s6">
+                                    <i class="material-icons prefix">location_searching</i>
+                                    <input id="icon_telephone" type="tel" class="validate">
+                                    <label for="icon_telephone">Destination</label>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
 
 
