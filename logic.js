@@ -35,7 +35,7 @@
         }
 
         function getStops(){
-            var $query = `http://api.actransit.org/transit/stops/${latitude}/${longitude}/10000/?token=73C0EC914517EE7D0DA47B8BE90D788B`;
+            var $query = `http://api.actransit.org/transit/stops/${latitude}/${longitude}/1000/?token=73C0EC914517EE7D0DA47B8BE90D788B`;
         
             $.ajax({
                 url : $query,
@@ -56,6 +56,15 @@
                 url : `https://api.actransit.org/transit/stops/${stopID}/predictions/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
                 method : "GET"
             }).then(function(predictions){
+                for (var bus = 0; bus < Object.keys(predictions).length; bus ++){
+                    var busPredictionDiv = $('<div>');
+                    var text = $('<h3>').text("Bus route: "+predictions[bus].RouteName);
+                    busPredictionDiv.append(text);
+                    $("#display").append(busPredictionDiv);
+                    
+                }
+                
+
                 console.log(predictions);
 
             })
