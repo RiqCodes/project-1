@@ -9,38 +9,59 @@ document.addEventListener('DOMContentLoaded', function() {
 
   $(document).ready(function(){
     $('.sidenav').sidenav();
+
+    // select option
+    // with jQuery
+      
+    $('select').formSelect();
+      
   
     // favorite input & save function
     $(".card-action").on("click", function() {
         // $()append("collection-item avatar")
         // get the user input from form
-        const userLocation  = $("#icon_prefix").val().trim();
-        const endLocation = $("#icon_telephone").val().trim(); 
+        const userLocation  = $("#start").val().trim();
+        const endLocation = $("#end").val().trim(); 
         
-        // create new item for the unorder list
+        // create new list item for the unorder list
         const newListItem = $("<li>");
+        // add a class to the <li> 
         newListItem.addClass("collection-item avatar");
+        // creating a p tag
         const $pTag = $("<p>");
+        // creating a span tag
         const $span = $("<span>");
-        $span.text("Title")
-        // const $img = $("<img>");
-        const $ifolder = $("<i>")
-        $ifolder.addClass("material-icons circle")
-        $ifolder.text("folder")
-        // $img.attr("src","")
-        const $a = $("<a>"); 
-        $a.addClass("secondary-content")
-        $a.attr("href", "#")
-        const $i = $("<i>")
-        $i.addClass("material-icons")
-        $i.text("grade")
-        $a.append($i); 
-        // $img.addClass("circle");
+        //set the text in span to Title
+        $span.text("Title");
+        // gives a class to the span 
         $span.addClass("title");
+        // const $img = $("<img>");
+        // $img.attr("src","")
+        // creating a icon tag
+        // $img.addClass("circle");
+        const $ifolder = $("<i>")
+        // adding a class to the icon tag
+        $ifolder.addClass("material-icons circle")
+        // gives text the icon tag
+        $ifolder.text("folder")
+        // creating an anchor tag
+        const $a = $("<a>"); 
+        // add a class to the anchor tag
+        $a.addClass("secondary-content")
+        // gives the anchor tag a link 
+        $a.attr("href", "#")
+        // creates another icon tag
+        const $i = $("<i>")
+        // gives a class to the second icon tag
+        $i.addClass("material-icons")
+        // gives text to the icon tag
+        $i.text("grade")
+        // apend the icon tag to the anchor tag
+        $a.append($i); 
+        // give userLocation and endLocation tot the p tag
         $pTag.html(userLocation + "<br>" + endLocation);
-        // append img, span, a tag
+        // append $ifolder, $span, $a tag
         newListItem.append($ifolder, $span, $pTag, $a);
-
         // append new item to order list
         $(".collection").append(newListItem); 
     })
@@ -48,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   
-=======
+
 
         
         
@@ -101,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             
         }
-        getIP();
+       
         function getVehicleOnStop(){
             $.ajax({
                 url : `https://api.actransit.org/transit/stops/${stopID}/predictions/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
