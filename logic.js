@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newListItem.append($ifolder, $span, $pTag, $a);
         // append new item to order list
         $(".collection").append(newListItem); 
+    });
     
 
 
@@ -113,6 +114,12 @@ document.addEventListener('DOMContentLoaded', function() {
             url : $query,
             method: "GET"
         }).then(function(stops){ 
+            for (var stop = 0; stop < Object.keys(stops).length; stop ++){
+                var stopbtn = $('<button>').attr("id", 'stops');
+                stopbtn.attr('stopID', stops[stop].StopId).text(stops[stop].Name);
+                $('#display').append(stopbtn);
+            }
+        });
             
 
         
@@ -161,4 +168,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-})
