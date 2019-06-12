@@ -1,12 +1,37 @@
-.card.large{
-    z-index: -1;
 
-}
 
 .brand-logo{
     padding-right: 100px;
 }
 
-.card-content {
-    z-index: 2;
+.nav-wrapper {
+    z-index: 5;
 }
+
+/* .card-content {
+    z-index: 2;
+} */
+#stops{
+display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0;
+border-radius:2em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color:#e57373;
+text-align:center;
+transition: all 0.2s;
+}
+#stops:hover{
+    background-color:darkgrey;
+    }
+
+    @media all and (max-width:30em){
+        #stops{
+        display:block;
+        margin:0.2em auto;
+    }
+    }
