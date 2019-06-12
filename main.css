@@ -1,18 +1,22 @@
-.card.large{
-    z-index: -1;
+
 
 }
 #mapid { 
     height: 600px; 
 }
 
+
 .brand-logo{
     padding-right: 100px;
 }
 
-.card-content {
-    z-index: 2;
+.nav-wrapper {
+    z-index: 5;
 }
+
+/* .card-content {
+    z-index: 2;
+} */
 #stops{
 display:inline-block;
 padding:0.3em 1.2em;
