@@ -41,16 +41,35 @@
         <li><a href="index.html"><i class="small material-icons">home</i>Return Home</a></li>
     </ul>
 
-    
-    <div id = 'mapid'></div>
-    <!-- style the option box and the map please  -->
-    <div class="input-field col s12 file-field">
-        
-        <select id = 'options' class = 'select-picker'>
-
-        </select>
-        <label>Materialize Select</label>   
-        
+    <!-- destination card -->
+    <div class="card large">
+        <div class="row">
+            <div class="col m12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="thinkingpic.jpg">
+                        <span class="card-title"></span>
+                    </div>
+                </div>
+                <h5>Choose New Route</h5>
+                <div class="card-content">
+                    <div class="row">
+                        
+                        <div class="input-field col s12 file-field">    
+                            <select id = 'options' class = 'select-picker'>
+                            <option value="" disabled selected>Choose your option</option>
+                            </select>
+                            <label>Materialize Select</label>
+                                
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id = 'routes'></div>
+    </div>
     </div>
             
    
