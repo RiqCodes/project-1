@@ -140,6 +140,7 @@ $(document).ready(function () {
               
                 for (var bus = 0; bus < Object.keys(predictions).length; bus++) {
                     if (predictions[bus].RouteName === routeID){
+
                         var estimateTime = moment(predictions[bus].PredictedDeparture);
                         var otherTime = moment(predictions[bus].PredictionDateTime)
                         var predicted = moment(estimateTime).unix()
@@ -184,18 +185,23 @@ $(document).ready(function () {
                 nO.text(destination[routes].Name + ": " + destination[routes].Description)
                 $('#options').append(nO);
                 $('#options').formSelect(); 
+                
             }
+            
            
 
         })
 
     }
 
+   
+
     
 //fires get route function, see function
     getRoutes();
     //fires getIP function, see function
     getIP();
+    
 
     
     
@@ -203,6 +209,7 @@ $(document).ready(function () {
 
     $('.select-picker').change(function(e){
         routeID= e.target.value;
+        $('#routes').empty();
         
         getVehicleOnStop();
     });
