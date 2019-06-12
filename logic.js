@@ -159,26 +159,37 @@ $(document).ready(function () {
     //  START OF AC TRANSIT API SECTION
 
     //Uses the longitude and latitude value retrieved from the previous function to input into AC trasit URL to get the stops within 
-    //1000 square feet, then dynamically create buttons on the page and assigning corresponding stopID from each stop to the buttons.
+    //1000 square feet, then retrieves the stopsID info and appending it to the stopID array declared globally; 
+    // function getStops() {
+    //     var $query = `http://api.actransit.org/transit/stops/${latitude}/${longitude}/1000/?token=73C0EC914517EE7D0DA47B8BE90D788B`;
 
-    function getStops() {
+    //     $.ajax({
+    //         url: $query,
+    //         method: "GET"
+    //     }).then(function (stops) {
+    //         for (var stop = 0; stop < Object.keys(stops).length; stop++) {
+    //             stopID[stop] = stops[stop].StopId
+    //         }
+
+    //     });
+    // }
+    function getStops(){
         var $query = `http://api.actransit.org/transit/stops/${latitude}/${longitude}/1000/?token=73C0EC914517EE7D0DA47B8BE90D788B`;
-
+    
         $.ajax({
-            url: $query,
+            url : $query,
             method: "GET"
-        }).then(function (stops) {
-            for (var stop = 0; stop < Object.keys(stops).length; stop++) {
+        }).then(function(stops){ 
+            for (var stop = 0; stop < Object.keys(stops).length; stop ++){
                 var stopbtn = $('<button>').attr("id", 'stops');
                 stopbtn.attr('stopID', stops[stop].StopId).text(stops[stop].Name);
                 $('#display').append(stopbtn);
             }
         });
+            
 
-
-
+        
     }
-
     //this function uses the AC transit 'stops/{stopId}/predictions' url to retrieve data about vehicles that is predicted to pass by the stop
     //then appending the information to yourlocation.html page to display the route info
     
@@ -216,7 +227,27 @@ $(document).ready(function () {
 
     }
     
+    function getRoutes() {
+        $.ajax({
+            url: `https://api.actransit.org/transit/routes/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
+            method: "GET"
+        }).then(function (destination) {    
+            populate(destination, '#start')
+            populate(destination, '#end')
+        })
+    }
 
+    const populate = (destination, target) => {
+        //[{RouteId: "1", Name: "1", Description: "San Leandro Bart\ Dtn. Oakland"}, ...]
+        for (var routes = 0; routes < Object.keys(destination).length; routes++) {
+            var nO = $('<option>');
+            nO.attr('value', destination[routes].RouteId)
+            nO.attr('id', 'rout')
+            nO.text(destination[routes].Name + ": " + destination[routes].Description)
+            $(target).append(nO);
+            $(target).formSelect(); 
+        }
+    }
     //end of AC Transit section
     //once clicked, it retrieves the value assigned to the buttons, which is the stopID of that stop name, then using this information to fire 
     //up getVehicleOnStop function to get predictions on this stop. 
@@ -226,9 +257,9 @@ $(document).ready(function () {
 
     });
     
-
-    
-
+    //calls the function to grab the IP
+    //getIP();
+    getRoutes()
 });
 
 
