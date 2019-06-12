@@ -73,39 +73,52 @@ $(document).ready(function () {
     var longitude;
     var stopID=[];
     var routeID;
+    
 
     
 
-//called at the bottom of the script page, automatically gets the user's ip address
-    function getIP(){
-        $.ajax({
-            url : 'https://api.ipify.org?format=jsonp&callback=?',
-            dataType : "json"
-        }).then(function(data){
-            IP = data.ip
-            //calls this function to get location
-            getLocation()
-        });
+    navigator.geolocation.getCurrentPosition(function(position) {
+        latitude = position.coords.latitude,
+        longitude = position.coords.longitude;
+        getStops()
+        var mymap = L.map('mapid').setView([latitude, longitude], 15);
+    
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                maxZoom: 18,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'mapbox.streets'
+            }).addTo(mymap);
+            var marker = L.marker([latitude, longitude]).addTo(mymap);
+    });
+    // function getLocation(){
+    //     var query = {
+    //         url : `http://api.ipstack.com/${IP}?access_key=711ae091724cdd59c84aed29e5d6d3d0`,
+    //         method: "GET"
+    //     }
 
-    }
-//this function getst he location of the user using their IP address, retrieves and stores the longitute and the latitude in global 
-//variables declared above
-    function getLocation(){
-        var query = {
-            url : `http://api.ipstack.com/${IP}?access_key=711ae091724cdd59c84aed29e5d6d3d0`,
-            method: "GET"
-        }
-
-        $.ajax(query).then(function(location){
+    //     $.ajax(query).then(function(location){
             
-            //updates longtude and latutude value
-            latitude = location.latitude;
-            longitude = location.longitude;
-            getStops(); 
-        });
-        
+    //         //updates longtude and latutude value
+    //         latitude = location.latitude;
+    //         longitude = location.longitude;
+    //         getStops(); 
+    //         var mymap = L.map('mapid').setView([latitude, longitude], 15);
+    
+    //         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    //             maxZoom: 18,
+    //             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+    //                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    //                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    //             id: 'mapbox.streets'
+    //         }).addTo(mymap);
+    //         var marker = L.marker([latitude, longitude]).addTo(mymap);
+    //     });
+       
+            
 
-    }
+    // }
 //  START OF AC TRANSIT API SECTION
 
 //Uses the longitude and latitude value retrieved from the previous function to input into AC trasit URL to get the stops within 
@@ -140,6 +153,7 @@ $(document).ready(function () {
               
                 for (var bus = 0; bus < Object.keys(predictions).length; bus++) {
                     if (predictions[bus].RouteName === routeID){
+
                         var estimateTime = moment(predictions[bus].PredictedDeparture);
                         var otherTime = moment(predictions[bus].PredictionDateTime)
                         var predicted = moment(estimateTime).unix()
@@ -152,17 +166,12 @@ $(document).ready(function () {
                         $("#routes").append(busPredictionDiv);
 
                     }
-                    else{
-                        var busPredictionDiv = $('<div>');
-                        var text = $('<h3>').text("Selected Bus does not pass by your location, select a different bus");
-                        busPredictionDiv.append(text);
-                        $("#routes").append(busPredictionDiv);
-                    }
+                 
                     
     
     
                 }
-            })
+            });
     
 
         }
@@ -180,29 +189,27 @@ $(document).ready(function () {
             for (var routes = 0; routes < Object.keys(destination).length; routes++) {
                 var nO = $('<option>');
                 nO.attr('value', destination[routes].RouteId)
-                nO.attr('id', 'rout')
+                nO.attr('id', 'route')
                 nO.text(destination[routes].Name + ": " + destination[routes].Description)
                 $('#options').append(nO);
                 $('#options').formSelect(); 
+                
             }
-           
 
         })
 
     }
-
-    
+ 
 //fires get route function, see function
     getRoutes();
-    //fires getIP function, see function
-    getIP();
 
-    
-    
+ 
     //once the an option is selected, it saves the value assigned to that option to routeID, then fires getVehicleOnStop function.
 
     $('.select-picker').change(function(e){
         routeID= e.target.value;
+        $('#routes').empty();
+        
         
         getVehicleOnStop();
     });

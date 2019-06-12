@@ -148,36 +148,14 @@ $(document).ready(function () {
    
     
     
-//called at the bottom of the script page, automatically gets the user's ip address
-    function getIP(){
-        $.ajax({
-            url: 'https://api.ipify.org?format=jsonp&callback=?',
-            dataType: "json"
-        }).then(function (data) {
-            IP = data.ip
-            //calls this function to get location
-            getLocation()
-        });
 
-    }
-    //this function getst he location of the user using their IP address, retrieves and stores the longitute and the latitude in global 
-    //variables declared above
-    function getLocation(){
-        var query = {
-            url: `http://api.ipstack.com/${IP}?access_key=711ae091724cdd59c84aed29e5d6d3d0`,
-            method: "GET"
-        }
+    navigator.geolocation.getCurrentPosition(function(position) {
+        latitude = position.coords.latitude,
+        longitude = position.coords.longitude;
+        getStops()
+      });
+      
 
-        $.ajax(query).then(function(location){
-            
-            //updates longtude and latutude value
-            latitude = location.latitude;
-            longitude = location.longitude;
-            getStops();
-        });
-
-
-    }
     //  START OF AC TRANSIT API SECTION
 
     //Uses the longitude and latitude value retrieved from the previous function to input into AC trasit URL to get the stops within 
@@ -248,8 +226,8 @@ $(document).ready(function () {
 
     });
     
-    //calls the function to grab the IP
-    getIP();
+
+    
 
 });
 

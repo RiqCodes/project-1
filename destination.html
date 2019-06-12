@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- icons link -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 
 </head>
 
@@ -39,47 +41,28 @@
         <li><a href="index.html"><i class="small material-icons">home</i>Return Home</a></li>
     </ul>
 
-    <!-- destination card -->
-    <div class="card large">
-        <div class="row">
-            <div class="col m12 m7">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="thinkingpic.jpg">
-                        <span class="card-title"></span>
-                    </div>
-                </div>
-                <h5>Choose New Route</h5>
-                <div class="card-content">
-                    <div class="row">
-                        
-                        <div class="input-field col s12 file-field">
-                            
-                            <select id = 'options' class = 'select-picker'>
+    
+    <div id = 'mapid'></div>
+    <!-- style the option box and the map please  -->
+    <div class="input-field col s12 file-field">
+        
+        <select id = 'options' class = 'select-picker'>
 
-                            </select>
-                            <label>Materialize Select</label>
-                                
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id = 'routes'></div>
+        </select>
+        <label>Materialize Select</label>   
+        
     </div>
-    </div>
-
-
-
-
+            
+   
+    <div id = 'routes'></div>
+    
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    
     <script src="destination.js"></script>
 
 
