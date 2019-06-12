@@ -2,6 +2,9 @@
     z-index: -1;
 
 }
+#mapid { 
+    height: 600px; 
+}
 
 .brand-logo{
     padding-right: 100px;
