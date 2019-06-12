@@ -52,20 +52,22 @@
                 <h5>Choose New Route</h5>
                 <div class="card-content">
                     <div class="row">
-                        <div class="input-field col s12">
-                            <select>
-                              <option value="" disabled selected>Choose your option</option>
-                              <option value="1">Option 1</option>
-                              <option value="2">Option 2</option>
-                              <option value="3">Option 3</option>
+                        
+                        <div class="input-field col s12 file-field">
+                            
+                            <select id = 'options' class = 'select-picker'>
+
                             </select>
                             <label>Materialize Select</label>
-                          </div>
+                                
+                            
+                        </div>
                         
                     </div>
                 </div>
             </div>
         </div>
+        <div id = 'routes'></div>
     </div>
     </div>
 
@@ -78,7 +80,8 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script src="logic.js"></script>
+    <script src="destination.js"></script>
+
 
 
 </body>

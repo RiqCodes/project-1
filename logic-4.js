@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var latitude;
     var longitude;
     var stopID; 
-    var vehicleID=[];
     
     
 
@@ -132,21 +131,21 @@ document.addEventListener('DOMContentLoaded', function() {
             url : `https://api.actransit.org/transit/stops/${stopID}/predictions/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
             method : "GET"
         }).then(function(predictions){
+            
+            
             for (var bus = 0; bus < Object.keys(predictions).length; bus ++){
-                
-
                 var estimateTime = moment(predictions[bus].PredictedDeparture);
                 var otherTime = moment(predictions[bus].PredictionDateTime)
                 var predicted = moment(estimateTime).unix()
                 var current = moment(otherTime).unix();
                 var remaining = predicted - current;
                 var rounded = Math.round(remaining/60)
-                
+                console.log(rounded);
                 var busPredictionDiv = $('<div>');
                 var text = $('<h3>').text("Bus route: "+predictions[bus].RouteName + ', comes in '+rounded+ ' minutes');
                 busPredictionDiv.append(text);
                 $("#routes").append(busPredictionDiv);
-                
+                console.log(estimateTime)
 
                 
                 
@@ -167,5 +166,3 @@ document.addEventListener('DOMContentLoaded', function() {
     getIP();
 
 });
-
-
