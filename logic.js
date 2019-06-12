@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // gives a class to the second icon tag
         $i.addClass("material-icons")
         // gives text to the icon tag
-        $i.text("grade")
+        $i.text("grade close")
         // apend the icon tag to the anchor tag
         $a.append($i); 
         // give userLocation and endLocation tot the p tag
