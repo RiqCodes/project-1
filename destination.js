@@ -68,7 +68,7 @@ $(document).ready(function () {
 
 
 
-    var IP;
+  
     var latitude;
     var longitude;
     var stopID=[];
@@ -158,7 +158,9 @@ $(document).ready(function () {
         $.ajax({
             url: `https://api.actransit.org/transit/routes/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
             method: "GET"
-        }).then(function (destination) {    
+        }).then(function (destination) { 
+            console.log(destination)
+               
 
             for (var routes = 0; routes < Object.keys(destination).length; routes++) {
                 var nO = $('<option>');
@@ -171,6 +173,7 @@ $(document).ready(function () {
             }
 
         })
+        
 
     }
  

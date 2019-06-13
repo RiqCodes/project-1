@@ -1,9 +1,4 @@
 
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav');
-    // var instances = M.Sidenav.init(elems, options);
-    var instances = M.Sidenav.init(elems);
-});
 
 // Or with jQuery
 let favArray = []
@@ -141,7 +136,7 @@ $(document).ready(function () {
 
 
 
-    var IP;
+ 
     var latitude;
     var longitude;
     var stopID; 
@@ -153,9 +148,17 @@ $(document).ready(function () {
         latitude = position.coords.latitude,
         longitude = position.coords.longitude;
         getStops()
-      });
-      
-
+        var mymap = L.map('mapid').setView([latitude, longitude], 15);
+    
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                maxZoom: 18,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'mapbox.streets'
+            }).addTo(mymap);
+            var marker = L.marker([latitude, longitude]).addTo(mymap);
+    });
     //  START OF AC TRANSIT API SECTION
 
     function getStops(){
@@ -171,6 +174,7 @@ $(document).ready(function () {
                 $('#display').append(stopbtn);
             }
         });
+        
             
 
         
@@ -185,6 +189,7 @@ $(document).ready(function () {
             url : `https://api.actransit.org/transit/stops/${stopID}/predictions/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
             method : "GET"
         }).then(function(predictions){
+            console.log(predictions)
             for (var bus = 0; bus < Object.keys(predictions).length; bus ++){
                 
 
@@ -204,9 +209,10 @@ $(document).ready(function () {
 
 
             }
+            
 
 
-            console.log(predictions);
+          
 
         })
 
@@ -219,6 +225,7 @@ $(document).ready(function () {
         }).then(function (destination) {    
             populate(destination, '#start')
             populate(destination, '#end')
+            console.log()
         })
     }
 
@@ -237,6 +244,7 @@ $(document).ready(function () {
     //once clicked, it retrieves the value assigned to the buttons, which is the stopID of that stop name, then using this information to fire 
     //up getVehicleOnStop function to get predictions on this stop. 
     $(document).on('click', '#stops', function(){
+        $('#routes').empty();
         stopID = $(this).attr('stopID');
         getVehicleOnStop();
 
