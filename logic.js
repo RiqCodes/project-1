@@ -181,6 +181,12 @@ $(document).ready(function () {
     }
     //this function uses the AC transit 'stops/{stopId}/predictions' url to retrieve data about vehicles that is predicted to pass by the stop
     //then appending the information to yourlocation.html page to display the route info
+
+    function getPin(){
+        $.ajax({
+            url : `https://api.actransit.org/transit/stops/${stopID}/predictions/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
+        })
+    }
     
 
 

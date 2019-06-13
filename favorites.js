@@ -162,17 +162,11 @@ $(document).ready(function () {
 
 
   
-    var latitude;
-    var longitude;
+   
     var stopID;
     var routeID;
     var tripID;
-    var estimateTime;
-    var otherTime;
-    var predicted;
-    var current;
-    var remaining;
-    var rounded;
+    
   
     
     
@@ -226,33 +220,8 @@ $(document).ready(function () {
         
 
     }
-    //this function makes an API call to ac transit to retrieve data about routes and then dinamically renders option tags with each route name and description to the html page; see $('.select-picker)
-    
-    
-    // function getRoutes() {
-    //     $.ajax({
-    //         url: `https://api.actransit.org/transit/routes/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
-    //         method: "GET"
-    //     }).then(function (destination) { 
-               
+   
 
-    //         for (var routes = 0; routes < Object.keys(destination).length; routes++) {
-    //             var nO = $('<option>');
-    //             nO.attr('value', destination[routes].RouteId)
-    //             nO.attr('id', 'route')
-    //             nO.text(destination[routes].Name + ": " + destination[routes].Description)
-    //             $('#start').append(nO);
-    //             $('#start').formSelect(); 
-                
-                
-    //         }
-           
-            
-
-    //     })
-
-
-    // }
 
     function getRoutes() {
         $.ajax({
