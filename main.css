@@ -1,4 +1,12 @@
-
+.gold-icon{
+    color: gold
+}
+.pink-icon{
+    background: #e57373
+}
+.deleteFav{
+    color:slategray
+}
 #mapid { 
     height: 600px; 
 }

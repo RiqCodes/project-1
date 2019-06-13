@@ -87,9 +87,9 @@ $(document).ready(function () {
         // creating a span tag
         const $span = $("<span>");
         //set the text in span to Title
-        $span.text("Title");
+        $span.text("Favorite");
         // gives a class to the span 
-        $span.addClass("title");
+        $span.addClass("favorite");
         // const $img = $("<img>");
         // $img.attr("src","")
         // creating a icon tag
@@ -108,7 +108,7 @@ $(document).ready(function () {
         // creates another icon tag
         const $i = $("<i>")
         // gives a class to the second icon tag
-        $i.addClass("material-icons")
+        $i.addClass("material-icons gold-icon")
         // gives text to the icon tag
         $i.text("grade")
         // creates another icon tag
