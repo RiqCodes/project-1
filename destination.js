@@ -123,6 +123,7 @@ $(document).ready(function () {
                 url: `https://api.actransit.org/transit/stops/${stopID[i]}/predictions/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
                 method: "GET"
             }).then(function (predictions) {
+                console.log(predictions)
               
                 for (var bus = 0; bus < Object.keys(predictions).length; bus++) {
                     if (predictions[bus].RouteName === routeID){
@@ -132,7 +133,7 @@ $(document).ready(function () {
                         var predicted = moment(estimateTime).unix()
                         var current = moment(otherTime).unix();
                         var remaining = predicted - current;
-                        var rounded = Math.round(remaining / 60)
+                        var rounded = Math.round(remaining / 60) 
                         var busPredictionDiv = $('<div>');
                         var text = $('<h3>').text("Bus route: " + predictions[bus].RouteName + ', comes in ' + rounded + ' minutes');
                         busPredictionDiv.append(text);
