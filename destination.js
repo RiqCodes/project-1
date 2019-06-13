@@ -150,6 +150,7 @@ $(document).ready(function () {
                 url: `https://api.actransit.org/transit/stops/${stopID[i]}/predictions/?token=73C0EC914517EE7D0DA47B8BE90D788B`,
                 method: "GET"
             }).then(function (predictions) {
+                console.log(predictions)
               
                 for (var bus = 0; bus < Object.keys(predictions).length; bus++) {
                     if (predictions[bus].RouteName === routeID){
