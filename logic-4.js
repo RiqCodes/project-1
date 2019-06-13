@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Or with jQuery
 
-  $(document).ready(function(){
+$(document).ready(function(){
     $('.sidenav').sidenav();
 
     // select option
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     getIP();
 
-});
+// });
 //  START OF AC TRANSIT API SECTION
 
 //Uses the longitude and latitude value retrieved from the previous function to input into AC trasit URL to get the stops within 
@@ -268,5 +268,5 @@ $('.select-picker').change(function(e){
     getVehicleOnStop();
 });
 
-
 });
+

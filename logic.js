@@ -158,21 +158,6 @@ $(document).ready(function () {
 
     //  START OF AC TRANSIT API SECTION
 
-    //Uses the longitude and latitude value retrieved from the previous function to input into AC trasit URL to get the stops within 
-    //1000 square feet, then retrieves the stopsID info and appending it to the stopID array declared globally; 
-    // function getStops() {
-    //     var $query = `http://api.actransit.org/transit/stops/${latitude}/${longitude}/1000/?token=73C0EC914517EE7D0DA47B8BE90D788B`;
-
-    //     $.ajax({
-    //         url: $query,
-    //         method: "GET"
-    //     }).then(function (stops) {
-    //         for (var stop = 0; stop < Object.keys(stops).length; stop++) {
-    //             stopID[stop] = stops[stop].StopId
-    //         }
-
-    //     });
-    // }
     function getStops(){
         var $query = `http://api.actransit.org/transit/stops/${latitude}/${longitude}/1000/?token=73C0EC914517EE7D0DA47B8BE90D788B`;
     

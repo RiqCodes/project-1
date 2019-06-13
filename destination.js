@@ -92,33 +92,6 @@ $(document).ready(function () {
             }).addTo(mymap);
             var marker = L.marker([latitude, longitude]).addTo(mymap);
     });
-    // function getLocation(){
-    //     var query = {
-    //         url : `http://api.ipstack.com/${IP}?access_key=711ae091724cdd59c84aed29e5d6d3d0`,
-    //         method: "GET"
-    //     }
-
-    //     $.ajax(query).then(function(location){
-            
-    //         //updates longtude and latutude value
-    //         latitude = location.latitude;
-    //         longitude = location.longitude;
-    //         getStops(); 
-    //         var mymap = L.map('mapid').setView([latitude, longitude], 15);
-    
-    //         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    //             maxZoom: 18,
-    //             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-    //                 '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    //                 'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    //             id: 'mapbox.streets'
-    //         }).addTo(mymap);
-    //         var marker = L.marker([latitude, longitude]).addTo(mymap);
-    //     });
-       
-            
-
-    // }
 //  START OF AC TRANSIT API SECTION
 
 //Uses the longitude and latitude value retrieved from the previous function to input into AC trasit URL to get the stops within 
