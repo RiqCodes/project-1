@@ -19,6 +19,7 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
   <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
+  
 </head>
 
 
@@ -75,13 +76,13 @@
   <div class="card-content">
     <div class="row">
       <div class="input-field col s6">
-        <select id="start">
+        <select id="start" class = 'select-picker'>
           <option value="" disabled selected>Choose your option</option>
         </select>
         <label>Select</label>
       </div>
       <div class="input-field col s6">
-        <select id="end">
+        <select id="end" class = 'selectPicker'>
           <option value="" disabled selected>Choose your option</option>
           
         </select>
@@ -107,8 +108,9 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-  <script src="logic.js"></script>
-  <!-- <script src="logic-4.js"></script> -->
+  
+  
+  <script src="favorites.js"></script>
 
 </body>
 
