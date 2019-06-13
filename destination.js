@@ -160,7 +160,7 @@ $(document).ready(function () {
                         var predicted = moment(estimateTime).unix()
                         var current = moment(otherTime).unix();
                         var remaining = predicted - current;
-                        var rounded = Math.round(remaining / 60)
+                        var rounded = Math.round(remaining / 60) 
                         var busPredictionDiv = $('<div>');
                         var text = $('<h3>').text("Bus route: " + predictions[bus].RouteName + ', comes in ' + rounded + ' minutes');
                         busPredictionDiv.append(text);
