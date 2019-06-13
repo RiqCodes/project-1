@@ -125,7 +125,7 @@ $(document).ready(function () {
         // creates another icon tag
         const $i = $("<i>")
         // gives a class to the second icon tag
-        $i.addClass("material-icons")
+        $i.addClass("material-icons gold-icon")
         // gives text to the icon tag
         $i.text("grade")
         // creates another icon tag
